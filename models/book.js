@@ -12,6 +12,7 @@ const bookSchema = new mongoose.Schema({
     borrowedBy: { type: mongoose.Schema.Types.ObjectId, ref: "student" },
     issuedBy: { type: mongoose.Schema.Types.ObjectId, ref: "libraryAtendant" },
     issueDate: { type: Date, default: null },
-    returnDate: { type: Date, default: null }
+    returnDate: { type: Date, default: null },
+    createdDate: { type: Date, default: null }
 },
     { timestamps: true });
