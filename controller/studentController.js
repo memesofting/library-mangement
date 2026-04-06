@@ -1,6 +1,6 @@
-const Student = require("../models/student")
+import { Student } from "../models/student.js"
 
-exports.createStudent = async (req, res) => {
+const createStudent = async (req, res) => {
     try {
         const { studentName, email, studentId } = req.body;
 
@@ -37,3 +37,5 @@ exports.createStudent = async (req, res) => {
         })
     }
 }
+
+export { createStudent }

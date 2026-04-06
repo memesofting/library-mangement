@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+import mongoose from "mongoose"
 
 const libraryAttendantSchema = new mongoose({
     name: { type: String, required: true },
@@ -8,4 +8,4 @@ const libraryAttendantSchema = new mongoose({
     { timeStamps: true }
 );
 
-module.exports = mongoose.model("LibraryAttendant", libraryAttendantSchema)
+export const LibraryAttendant = mongoose.model("LibraryAttendant", libraryAttendantSchema)

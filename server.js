@@ -1,7 +1,7 @@
-const express = require("express");
-const dbConnection = require("./config/db")
-const indexRouter = require("./index")
-const studentRouter = require("./routes/studentsRoute")
+import express from "express"
+import dbConnection from "./config/db.js"
+import indexRouter from "./index.js"
+import studentRouter from "./routes/studentsRoute.js"
 
 const app = express();
 app.use(express.json());
