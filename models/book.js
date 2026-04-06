@@ -15,4 +15,7 @@ const bookSchema = new mongoose.Schema({
     returnDate: { type: Date, default: null },
     createdDate: { type: Date, default: null }
 },
-    { timestamps: true });
+    { timestamps: true }
+);
+
+module.exports = mongoose.model("Book", bookSchema);

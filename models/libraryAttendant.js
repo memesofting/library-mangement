@@ -5,4 +5,7 @@ const libraryAttendantSchema = new mongoose({
     staffId: { type: String, unique: true },
     createdAt: { type: Date, default: null }
 },
-    { timeStamps: true });
+    { timeStamps: true }
+);
+
+module.exports = mongoose.model("LibraryAttendant", libraryAttendantSchema)
