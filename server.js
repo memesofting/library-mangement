@@ -1,10 +1,23 @@
-const express = require("express");
+require("dotenv").config({
+    path: './.env'
+});
+const app = require("./app.js");
+const dbConnection = require("./config/db.js");
 
-const studentRouter = require("./routes/studentsRoute.js");
+const startServer = async () => {
+    try {
+        await dbConnection()
+        app.on("error", (error) => {
+            console.log("ERROR", error);
+            throw error
+        });
+        app.listen(8000, () => {
+            console.log("Server running on port 8000")
+        })
+    } catch (error) {
+        console.error("Startup failed", error)
+        process.exit(1)
+    }
+}
 
-const app = express();
-app.use(express.json());
-
-app.use("/student", studentRouter)
-
-module.exports = app;
+startServer()
