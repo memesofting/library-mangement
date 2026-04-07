@@ -1,6 +1,6 @@
-import { Student } from "../models/student.js"
+const Student = require("../models/student.js")
 
-const createStudent = async (req, res) => {
+exports.createStudent = async (req, res) => {
     try {
         const { studentName, email, studentId } = req.body;
 
@@ -21,7 +21,7 @@ const createStudent = async (req, res) => {
 
         // create student
 
-        const student = await User.create({
+        const student = await Student.create({
             studentName,
             email: email.toLowerCase(),
             studentId
@@ -37,5 +37,3 @@ const createStudent = async (req, res) => {
         })
     }
 }
-
-export { createStudent }

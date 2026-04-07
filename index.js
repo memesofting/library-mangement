@@ -1,9 +1,23 @@
-import { Router } from "express"
-
-const router = Router()
-
-router.get('/', (req, res) => {
-    res.send("Welcome to library")
+require("dotenv").config({
+    path: './.env'
 });
+const app = require("./server.js");
+const dbConnection = require("./config/db.js");
 
-export default router
+const startServer = async () => {
+    try {
+        await dbConnection()
+        app.on("error", (error) => {
+            console.log("ERROR", error);
+            throw error
+        });
+        app.listen(8000, () => {
+            console.log("Server running on port 8000")
+        })
+    } catch (error) {
+        console.error("Startup failed", error)
+        process.exit(1)
+    }
+}
+
+startServer()

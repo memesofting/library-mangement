@@ -1,11 +1,11 @@
-import mongoose from "mongoose"
+const mongoose = require("mongoose")
 
 const libraryAttendantSchema = new mongoose({
     name: { type: String, required: true },
     staffId: { type: String, unique: true },
     createdAt: { type: Date, default: null }
 },
-    { timeStamps: true }
+    { timestamps: true }
 );
 
-export const LibraryAttendant = mongoose.model("LibraryAttendant", libraryAttendantSchema)
+module.exports = mongoose.model("LibraryAttendant", libraryAttendantSchema)

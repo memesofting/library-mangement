@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+const mongoose = require("mongoose")
 
 const authorSchema = new mongoose.Schema({
     name: { type: String, required: true },
@@ -8,4 +8,4 @@ const authorSchema = new mongoose.Schema({
     { timestamps: true }
 );
 
-export const Author = mongoose.model("Author", authorSchema)
+module.exports = mongoose.model("Author", authorSchema)

@@ -2,14 +2,14 @@
   "name": "library-mangement",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
+  "type": "commonjs",
   "dependencies": {
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
