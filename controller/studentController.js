@@ -1,6 +1,6 @@
 const Student = require("../models/student.js")
 
-exports.createStudent = async (req, res) => {
+const createStudent = async (req, res) => {
     try {
         const { studentName, email, studentId } = req.body;
 
@@ -37,3 +37,41 @@ exports.createStudent = async (req, res) => {
         })
     }
 }
+
+const getAllStudents = async (req, res) => {
+    try {
+        const students = await Student.find();
+        res.status(200).json({
+            message: "All students",
+            students
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: "Internal server error",
+            error: error.message
+        })
+    }
+}
+
+const getStudentById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const student = await Student.findById(id);
+        if (!student) {
+            return res.status(404).json({
+                message: "Student not found"
+            })
+        }
+        res.status(200).json({
+            message: "Student found",
+            student
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: "Internal server error",
+            error: error.message
+        })
+    }
+}
+
+module.exports = { createStudent, getAllStudents, getStudentById }

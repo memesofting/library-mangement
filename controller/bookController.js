@@ -1,6 +1,6 @@
-const books = requre("../models/book")
+const books = require("../models/book")
 
-exports.borrowBook = async (req, res) => {
+const borrowBook = async (req, res) => {
     try {
         const { studentId, attendantId, returnDate } = req.body;
 
@@ -26,3 +26,5 @@ exports.borrowBook = async (req, res) => {
         return res.status(500).json({ message: err.message })
     }
 }
+
+module.exports = { borrowBook }
